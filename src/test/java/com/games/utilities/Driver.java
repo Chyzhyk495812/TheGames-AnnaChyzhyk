@@ -7,13 +7,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.time.Duration;
 
 public class Driver {
-    //create a private constructor to remove access to this object
 
     private Driver(){
-        /*
-        we made the WebDriver private,because we want to close access from outside the class
-        We are making it static,because we will use it in a static method
-         */
 
     }
 

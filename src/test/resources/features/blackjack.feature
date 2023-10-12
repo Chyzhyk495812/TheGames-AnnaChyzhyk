@@ -1,5 +1,5 @@
 Feature: As a user i want to be able play blackjack api and check who wins
-@
+@API
   Scenario: Checking for Blackjack
     Given I send GET request to "https://deckofcardsapi.com/"
     And status code is 200
