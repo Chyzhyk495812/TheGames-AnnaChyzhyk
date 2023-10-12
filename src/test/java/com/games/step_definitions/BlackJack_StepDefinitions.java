@@ -27,12 +27,11 @@ public class BlackJack_StepDefinitions {
     @Given("I send GET request to {string}")
     public void i_send_get_request_to(String url) {
         response = when().get(url);
-        thenPart = response.then();
         baseUrl = url;
     }
     @Given("status code is {int}")
     public void status_code_is(Integer statusCode) {
-        thenPart.statusCode(statusCode);
+        response.then().statusCode(statusCode);
     }
     @When("I get a new deck")
     public void i_get_a_new_deck() {
@@ -72,7 +71,7 @@ public class BlackJack_StepDefinitions {
                 break;
             }
         }
-
+        System.out.println(playersCards);
     }
     @Then("I display the winning player if any")
     public void i_display_the_winning_player_if_any() {
