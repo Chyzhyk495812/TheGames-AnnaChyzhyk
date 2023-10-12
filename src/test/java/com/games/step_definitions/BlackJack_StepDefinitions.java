@@ -16,9 +16,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 
 public class BlackJack_StepDefinitions {
-
     Response response;
-    ValidatableResponse thenPart;
     String baseUrl;
     String deckId;//deckId to use in different steps
     Map<Integer, List<String>> playersCards = new LinkedHashMap<>();//to store each player cards info
@@ -41,7 +39,7 @@ public class BlackJack_StepDefinitions {
     }
     @When("I shuffle the deck")
     public void i_shuffle_the_deck() {
-        //shuffling the deck that was just obtained by passing a path param of deck id and verifying status code is 200 for success
+
         given().pathParam("deckId",deckId)
                 .when().get(baseUrl+"api/deck/{deckId}/shuffle/")
                 .then().statusCode(200);
@@ -64,7 +62,7 @@ public class BlackJack_StepDefinitions {
     public void i_check_whether_either_player_has_blackjack() {
         //iterate through each player information to validate amount
         //using Util method to calculate card values
-        //also checking if value equals to 21, we store winning players information
+
         for (Integer eachPlayer : playersCards.keySet()) {
             if(BlackJack_Util.countValues(playersCards.get(eachPlayer))==21){
                 winningPlayer = "Player: "+eachPlayer;
